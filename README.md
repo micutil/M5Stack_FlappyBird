@@ -1,4 +1,4 @@
-# M5Stack\_Odroid-GO\_FlappyBird
+# FlappyBird for Odroid-GO & M5Stack
 
 ### Modified by Micutil
 
