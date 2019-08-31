@@ -1,7 +1,8 @@
-#By Ponticelli Domenico.
+                                                                                                                                              //#By Ponticelli Domenico.
 
 
 #include <M5Stack.h>
+#include "M5StackUpdater.h"
 //#include <SPI.h>
 #include <EEPROM.h>
 
@@ -93,8 +94,14 @@ static short tmpx, tmpy;
 
 void setup() {
   // put your setup code here, to run once:
-M5.begin();
-resetMaxScore();
+  M5.begin();
+  if(digitalRead(BUTTON_A_PIN) == 0) {
+    Serial.println("Will Load menu binary");
+    updateFromFS(SD);
+    ESP.restart();
+  }
+  
+  resetMaxScore();
 
 }
 
@@ -386,5 +393,3 @@ void EEPROM_Read(int *num, int MemPos)
  }
  memcpy(num, ByteArray, 2);
 }
-
-
